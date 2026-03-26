@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Speech-to-Text & Next Word Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <div class="logo">🎙️</div>
+      <h1>Speech & Word Predictor</h1>
+      <p class="subtitle">Speak or type — get instant next-word predictions</p>
+    </header>
+
+    <!-- Language Selector -->
+    <div class="card">
+      <label for="langSelect">🌐 Recognition Language</label>
+      <select id="langSelect">
+        <option value="en-US">English (US)</option>
+        <option value="en-GB">English (UK)</option>
+        <option value="es-ES">Spanish</option>
+        <option value="fr-FR">French</option>
+        <option value="de-DE">German</option>
+        <option value="hi-IN">Hindi</option>
+        <option value="zh-CN">Chinese (Mandarin)</option>
+        <option value="ar-SA">Arabic</option>
+        <option value="pt-BR">Portuguese (Brazil)</option>
+        <option value="ja-JP">Japanese</option>
+        <option value="ko-KR">Korean</option>
+        <option value="ru-RU">Russian</option>
+        <option value="it-IT">Italian</option>
+      </select>
+    </div>
+
+    <!-- Microphone Section -->
+    <div class="card mic-card">
+      <button id="micBtn" class="mic-btn" title="Click to start/stop recording">
+        <span class="mic-icon">🎤</span>
+        <span id="micLabel">Start Recording</span>
+      </button>
+      <div id="micStatus" class="mic-status">Click the microphone to begin</div>
+
+      <!-- Live transcript while speaking -->
+      <div id="interimBox" class="interim-box" style="display:none">
+        <span class="interim-label">Listening…</span>
+        <span id="interimText"></span>
+      </div>
+    </div>
+
+    <!-- Text Input Section -->
+    <div class="card">
+      <label for="textInput">✏️ Text Input / Recognized Speech</label>
+      <div class="input-row">
+        <textarea
+          id="textInput"
+          placeholder="Type here or use the microphone above…"
+          rows="4"
+        ></textarea>
+        <button id="clearBtn" class="clear-btn" title="Clear text">✕</button>
+      </div>
+    </div>
+
+    <!-- Predictions Section -->
+    <div class="card predictions-card">
+      <div class="predictions-header">
+        <span>🔮 Next Word Predictions</span>
+        <span id="predStatus" class="pred-status"></span>
+      </div>
+      <div id="predictionsBox" class="predictions-box">
+        <div class="pred-placeholder">Start typing or speaking to see predictions…</div>
+      </div>
+    </div>
+
+    <!-- Error Banner -->
+    <div id="errorBanner" class="error-banner" style="display:none"></div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Web Speech API &nbsp;·&nbsp; Flask Backend &nbsp;·&nbsp; Trigram NLP Model</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
